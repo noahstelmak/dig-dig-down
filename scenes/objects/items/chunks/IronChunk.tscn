@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbt667j6i60ed"]
+
+[ext_resource type="Texture2D" uid="uid://c4viqt3x2ap50" path="res://assets/sprites/items/chunks/iron_chunk.png" id="1_vt6xe"]
+
+[node name="IronChunk" type="Node2D"]
+
+[node name="IronChunk" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("1_vt6xe")

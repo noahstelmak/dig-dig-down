@@ -1,3 +1,50 @@
-[gd_scene format=3 uid="uid://bqdf5ygp4i7fn"]
+[gd_scene load_steps=8 format=3 uid="uid://bqdf5ygp4i7fn"]
+
+[ext_resource type="Script" path="res://scenes/objects/minerals/iron_ore/iron_ore.gd" id="1_xfigp"]
+[ext_resource type="Texture2D" uid="uid://hk8em4llkhjp" path="res://assets/sprites/objects/minerals/iron_ore.png" id="2_c2cyn"]
+[ext_resource type="Texture2D" uid="uid://bby8ngr6n2xy7" path="res://assets/sprites/objects/minerals/iron_ore_breaking.png" id="3_fc7vd"]
+[ext_resource type="Texture2D" uid="uid://ce24hs8ui8oms" path="res://assets/sprites/objects/minerals/iron_ore_breaking_2.png" id="4_5pd88"]
+[ext_resource type="Texture2D" uid="uid://dgdd1kggc500g" path="res://assets/sprites/objects/minerals/iron_ore_breaking_3.png" id="5_vq208"]
+[ext_resource type="Texture2D" uid="uid://c6p8s5o7uiced" path="res://assets/sprites/objects/minerals/iron_ore_breaking_4.png" id="6_34ysr"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m0iqb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fc7vd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_5pd88")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_vq208")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_34ysr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="IronOre" type="Node2D"]
+script = ExtResource("1_xfigp")
+max_health = 100.0
+
+[node name="IronOre" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -3)
+scale = Vector2(4, 4)
+texture = ExtResource("2_c2cyn")
+metadata/_edit_lock_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -3)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_m0iqb")
+frame_progress = 0.465418
+metadata/_edit_lock_ = true
