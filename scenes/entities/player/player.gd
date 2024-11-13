@@ -1,10 +1,9 @@
 extends CharacterBody2D
 
 @export var SPEED: float = 300.0;
-@export var SWING_RANGE: float = 30.0; 
+@export var MAX_HEALTH: float = 100.0;
+@export var HEALTH: float = MAX_HEALTH;
 
-@export var MAX_HEALTH = 100;
-@export var HEALTH = MAX_HEALTH;
 
 func _ready():
 	pass

@@ -1,0 +1,86 @@
+[gd_scene load_steps=5 format=3 uid="uid://dohj0tyari7o2"]
+
+[ext_resource type="Script" path="res://scenes/entities/player/dig_tool.gd" id="1_02b50"]
+
+[sub_resource type="Animation" id="Animation_47ayj"]
+resource_name = "digging"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DigTool:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.266667, 0.533333, 0.766667)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DigTool:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(10, -0.25, 0, 0.25, 0, -16, -0.25, 0, 0.25, 0, 10, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.266667, 0.766667)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DigTool:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(-0.958186, -0.25, 0, 0.25, 0, 0.785398, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.266667, 0.766667)
+}
+
+[sub_resource type="Animation" id="Animation_6f6et"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DigTool:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6p3s5"]
+_data = {
+"RESET": SubResource("Animation_6f6et"),
+"digging": SubResource("Animation_47ayj")
+}
+
+[node name="Anchor" type="Node2D"]
+script = ExtResource("1_02b50")
+metadata/_edit_group_ = true
+
+[node name="DigTool" type="Area2D" parent="."]
+position = Vector2(0, 10)
+
+[node name="Head" type="Polygon2D" parent="DigTool"]
+z_index = 1
+position = Vector2(0, -8)
+color = Color(0.156378, 0.408064, 0.501057, 1)
+polygon = PackedVector2Array(-16, -10, -8, -16, -4, -18, -2, -16, 2, -16, 4, -18, 8, -16, 16, -10, 16, -14, 8, -22, 1.85774, -24, -2, -24, -8, -22, -16, -14)
+
+[node name="Handle" type="Polygon2D" parent="DigTool"]
+position = Vector2(0, -8)
+color = Color(0.267233, 0.201782, 0.138356, 1)
+polygon = PackedVector2Array(-2, 12, 0, 16, 2, 12, 2, -20, 0, -28, -2, -20)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DigTool"]
+position = Vector2(0, -8)
+polygon = PackedVector2Array(-16, -10, -8, -16, -4, -18, -2, -16, 2, -16, 4, -18, 8, -16, 16, -10, 16, -14, 8, -22, 2, -24, -2, -24, -8, -22, -16, -14)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6p3s5")
+}
