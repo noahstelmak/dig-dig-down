@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbt667j6i60ed"]
+
+[ext_resource type="Script" path="res://scenes/objects/items/chunks/iron_chunk/iron_chunk.gd" id="1_y3ngf"]
+[ext_resource type="Texture2D" uid="uid://c4viqt3x2ap50" path="res://assets/sprites/items/chunks/iron_chunk.png" id="2_ag7wg"]
+
+[node name="IronChunk" type="Node2D"]
+script = ExtResource("1_y3ngf")
+
+[node name="IronChunk" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("2_ag7wg")

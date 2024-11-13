@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://bw2enhcqehtpg"]
+
+[ext_resource type="Texture2D" uid="uid://bby8ngr6n2xy7" path="res://assets/sprites/objects/minerals/iron_ore_breaking.png" id="1_vq4mv"]
+[ext_resource type="Texture2D" uid="uid://ce24hs8ui8oms" path="res://assets/sprites/objects/minerals/iron_ore_breaking_2.png" id="2_khsqi"]
+[ext_resource type="Texture2D" uid="uid://dgdd1kggc500g" path="res://assets/sprites/objects/minerals/iron_ore_breaking_3.png" id="3_xwyta"]
+[ext_resource type="Texture2D" uid="uid://c6p8s5o7uiced" path="res://assets/sprites/objects/minerals/iron_ore_breaking_4.png" id="4_ief7f"]
+[ext_resource type="Script" path="res://scenes/objects/minerals/breaking_animation/breaking_animation.gd" id="5_8kdkb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m0iqb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_vq4mv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_khsqi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xwyta")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ief7f")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="BreakingAnimation" type="AnimatedSprite2D"]
+texture_filter = 1
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_m0iqb")
+frame_progress = 0.465418
+script = ExtResource("5_8kdkb")
+metadata/_edit_lock_ = true
