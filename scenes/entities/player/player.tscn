@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://p81ukddxm5cl"]
 
 [ext_resource type="Script" path="res://scenes/entities/player/player.gd" id="1_g55rq"]
-[ext_resource type="PackedScene" uid="uid://dohj0tyari7o2" path="res://scenes/entities/player/dig_tool.tscn" id="2_7r63m"]
+[ext_resource type="PackedScene" uid="uid://doionhaksnvao" path="res://scenes/entities/player/dig_tool.tscn" id="2_7r63m"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tw2dg"]
 radius = 8.0
