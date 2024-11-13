@@ -1,222 +1,25 @@
-[gd_scene load_steps=9 format=3 uid="uid://p81ukddxm5cl"]
+[gd_scene load_steps=5 format=3 uid="uid://p81ukddxm5cl"]
 
 [ext_resource type="Script" path="res://scenes/entities/player/player.gd" id="1_g55rq"]
-[ext_resource type="Script" path="res://scenes/entities/player/dig_tool.gd" id="2_ynot7"]
+[ext_resource type="PackedScene" uid="uid://dohj0tyari7o2" path="res://scenes/entities/player/dig_tool.tscn" id="2_7r63m"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tw2dg"]
 radius = 8.0
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_unro6"]
 
-[sub_resource type="Animation" id="Animation_810rc"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Node2D/DigTool:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Node2D/DigTool/Head:position:x")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Node2D/DigTool/Head:position:y")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Node2D/DigTool/Handle:position:x")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.0005, 0, 0.0005, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/4/type = "bezier"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Node2D/DigTool/Handle:position:y")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.0005, 0, 0.0005, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/5/type = "bezier"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Node2D/DigTool/Head:rotation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(-0.958186, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/6/type = "bezier"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Node2D/DigTool/Handle:rotation")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(-0.958186, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-
-[sub_resource type="Animation" id="Animation_wokc5"]
-resource_name = "digging"
-length = 0.8
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Node2D/DigTool:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.8)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Node2D/DigTool/Head:position:x")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.266667, 0.533333, 0.766667)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Node2D/DigTool/Head:position:y")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(10, -0.25, 0, 0.25, 0, -16, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.266667, 0.766667)
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Node2D/DigTool/Handle:position:x")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.266667, 0.766667)
-}
-tracks/4/type = "bezier"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Node2D/DigTool/Handle:position:y")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(10, -0.25, 0, 0.25, 0, -16, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.266667, 0.766667)
-}
-tracks/5/type = "bezier"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Node2D/DigTool/Head:rotation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(-0.958186, -0.25, 0, 0.25, 0, 0.785398, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.266667, 0.766667)
-}
-tracks/6/type = "bezier"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Node2D/DigTool/Handle:rotation")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(-0.958186, -0.25, 0, 0.25, 0, 0.785398, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.266667, 0.766667)
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_pie3e"]
-_data = {
-"RESET": SubResource("Animation_810rc"),
-"digging": SubResource("Animation_wokc5")
-}
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_sna4f"]
-radius = 24.0208
-
-[node name="Node" type="Node"]
-
-[node name="Player" type="CharacterBody2D" parent="."]
+[node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_g55rq")
-SWING_RANGE = 15.0
+metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_tw2dg")
 
-[node name="Body" type="MeshInstance2D" parent="Player"]
+[node name="Body" type="MeshInstance2D" parent="."]
 scale = Vector2(16, 16)
 mesh = SubResource("CapsuleMesh_unro6")
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
 
-[node name="Node2D" type="Node2D" parent="."]
-
-[node name="DigTool" type="Area2D" parent="Node2D"]
-script = ExtResource("2_ynot7")
-
-[node name="Head" type="Polygon2D" parent="Node2D/DigTool"]
-z_index = 1
-rotation = -0.958186
-color = Color(0.156378, 0.408064, 0.501057, 1)
-polygon = PackedVector2Array(-16, -10, -8, -16, -4, -18, -2, -16, 2, -16, 4, -18, 8, -16, 16, -10, 16, -14, 8, -22, 1.85774, -24, -2, -24, -8, -22, -16, -14)
-
-[node name="Handle" type="Polygon2D" parent="Node2D/DigTool"]
-rotation = -0.958186
-color = Color(0.267233, 0.201782, 0.138356, 1)
-polygon = PackedVector2Array(-2, 12, 0, 16, 2, 12, 2, -20, 0, -28, -2, -20)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D/DigTool"]
-root_node = NodePath("../../..")
-libraries = {
-"": SubResource("AnimationLibrary_pie3e")
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/DigTool"]
-visible = false
-position = Vector2(0, -19)
-shape = SubResource("CircleShape2D_sna4f")
+[node name="DigTool" parent="." instance=ExtResource("2_7r63m")]
