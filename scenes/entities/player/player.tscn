@@ -10,16 +10,13 @@ radius = 8.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_g55rq")
-metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
 shape = SubResource("CircleShape2D_tw2dg")
 
 [node name="Body" type="MeshInstance2D" parent="."]
 scale = Vector2(16, 16)
 mesh = SubResource("CapsuleMesh_unro6")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
 
 [node name="DigTool" parent="." instance=ExtResource("2_7r63m")]

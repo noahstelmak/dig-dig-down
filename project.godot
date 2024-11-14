@@ -12,7 +12,12 @@ config_version=5
 
 config/name="dig-dig-down"
 config/features=PackedStringArray("4.3", "Forward Plus")
+boot_splash/bg_color=Color(0.0235294, 0.0627451, 0.0666667, 1)
 config/icon="res://icon.svg"
+
+[display]
+
+window/stretch/scale_mode="integer"
 
 [input]
 
