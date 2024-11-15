@@ -62,6 +62,7 @@ func _physics_process(_delta):
 
 func _on_hit_box_body_entered(body: Node2D) -> void:
 	if body is Enemy:
+		Globals.screan_shake.emit()
 		Globals.PLAYER_HEALTH -= 1
 		
 		if Globals.PLAYER_HEALTH <= 0:
