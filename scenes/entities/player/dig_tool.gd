@@ -2,6 +2,10 @@ extends Node2D
 
 @onready var ANIMATION_PLAYER: AnimationPlayer = $AnimationPlayer;
 
+@export var dig_power := 30.0
+@export var pain_power := 10.0
+@export var knockback_power := 1000
+
 var toggle_animation = -1
 
 func _get_input():
@@ -26,3 +30,14 @@ func dig():
 
 func _physics_process(delta):
 	_get_input();
+
+
+func _on_dig_tool_body_entered(body: Node2D) -> void:
+	if body is Enemy:
+		body.receive_damage(pain_power, knockback_power, global_position)
+		print("enemy!")
+		return
+	if body is Ore:
+		print("Ore!")
+		body.receive_damage(dig_power)
+		return

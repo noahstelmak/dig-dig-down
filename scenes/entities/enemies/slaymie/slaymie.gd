@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Enemy
 
 const SPEED = 100.0
 @onready var nav := $NavigationAgent2D
@@ -22,7 +22,9 @@ func _physics_process(delta: float) -> void:
 		modulate = "#00fb00"
 	
 	var dir = to_local(nav.get_next_path_position()).normalized()
-	velocity = dir * SPEED
+	
+	velocity = dir * SPEED + knockback
+	knockback = lerp(knockback, Vector2.ZERO, 0.1)
 	
 	if nav.is_target_reached():
 		velocity = Vector2.ZERO

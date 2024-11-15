@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=4 uid="uid://diml61at3753q"]
+[gd_scene load_steps=5 format=4 uid="uid://diml61at3753q"]
 
 [ext_resource type="TileSet" uid="uid://cbdppwe74gqlb" path="res://assets/tilesets/DwarvenDelveTileset.tres" id="1_ltsua"]
 [ext_resource type="PackedScene" uid="uid://p81ukddxm5cl" path="res://scenes/entities/player/player.tscn" id="1_rrfh1"]
 [ext_resource type="PackedScene" uid="uid://5eh1gjfjv5iy" path="res://scenes/entities/enemies/slaymie/slaymie.tscn" id="4_33fhp"]
+[ext_resource type="PackedScene" uid="uid://bqdf5ygp4i7fn" path="res://scenes/objects/minerals/iron_ore/iron_ore.tscn" id="4_yceoc"]
 
 [node name="FloorI" type="Node2D"]
 
@@ -19,3 +20,7 @@ zoom = Vector2(1.5, 1.5)
 
 [node name="Slaymie" parent="." instance=ExtResource("4_33fhp")]
 position = Vector2(-187, 3)
+max_health = 100
+
+[node name="IronOre" parent="." instance=ExtResource("4_yceoc")]
+position = Vector2(175, -31)

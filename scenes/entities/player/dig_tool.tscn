@@ -85,3 +85,5 @@ polygon = PackedVector2Array(-16, -10, -8, -16, -4, -18, -2, -16, 2, -16, 4, -18
 libraries = {
 "": SubResource("AnimationLibrary_6p3s5")
 }
+
+[connection signal="body_entered" from="DigTool" to="." method="_on_dig_tool_body_entered"]

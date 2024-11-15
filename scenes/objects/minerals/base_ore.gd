@@ -1,6 +1,6 @@
-extends Node2D
+extends StaticBody2D
 
-class_name  BaseOre
+class_name  Ore
 
 @export var max_health : float # O Noah quis usar Float
 @export var chunk : PackedScene
@@ -24,7 +24,7 @@ func receive_damage(damage:float) -> void:
 	print(current_health)
 	health_changed.emit(current_health, max_health)
 	
-	if current_health >= 0.0:
+	if current_health <= 0.0:
 		spawn_chunk()
 		queue_free()
 

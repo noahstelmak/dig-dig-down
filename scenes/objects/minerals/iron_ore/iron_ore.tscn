@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://bqdf5ygp4i7fn"]
+[gd_scene load_steps=6 format=3 uid="uid://bqdf5ygp4i7fn"]
 
 [ext_resource type="Script" path="res://scenes/objects/minerals/iron_ore/iron_ore.gd" id="1_xfigp"]
 [ext_resource type="Texture2D" uid="uid://hk8em4llkhjp" path="res://assets/sprites/objects/minerals/iron_ore.png" id="2_c2cyn"]
 [ext_resource type="PackedScene" uid="uid://dbt667j6i60ed" path="res://scenes/objects/items/chunks/iron_chunk/IronChunk.tscn" id="2_yhcr0"]
 [ext_resource type="PackedScene" uid="uid://bw2enhcqehtpg" path="res://scenes/objects/minerals/breaking_animation/breaking_animation.tscn" id="3_ge737"]
 
-[node name="IronOre" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sqvgr"]
+size = Vector2(34, 38)
+
+[node name="IronOre" type="StaticBody2D"]
 script = ExtResource("1_xfigp")
 max_health = 100.0
 chunk = ExtResource("2_yhcr0")
@@ -20,5 +23,9 @@ metadata/_edit_lock_ = true
 [node name="BreakingAnimation" parent="." instance=ExtResource("3_ge737")]
 position = Vector2(0, -3)
 frame_progress = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 9)
+shape = SubResource("RectangleShape2D_sqvgr")
 
 [connection signal="health_changed" from="." to="BreakingAnimation" method="update_state"]
