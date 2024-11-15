@@ -68,8 +68,7 @@ func _physics_process(_delta):
 
 
 func _on_hit_box_body_entered(body: Node2D) -> void:
-	
-	if body is Enemy and not isDying:
+	if (body is Enemy or body is Bullet) and not isDying:
 		Globals.screan_shake.emit()
 		Globals.PLAYER_HEALTH -= 1
 		
@@ -85,5 +84,9 @@ func _on_hit_box_body_entered(body: Node2D) -> void:
 		$DamageAnimation.play("damage")
 		
 		var knockbackForce = global_position.direction_to(body.global_position) * 500
-		body.knockback = knockbackForce
+		if body is Enemy:
+			body.knockback = knockbackForce
 		knockback = knockbackForce * -1
+		
+		if body is Bullet:
+			body.queue_free()

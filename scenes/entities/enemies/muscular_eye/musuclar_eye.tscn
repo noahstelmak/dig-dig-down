@@ -1,3 +1,90 @@
-[gd_scene format=3 uid="uid://14totc7uajq7"]
+[gd_scene load_steps=11 format=3 uid="uid://14totc7uajq7"]
 
-[node name="MusuclarEye" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://jfsxxhmudblc" path="res://icon.svg" id="1_k3f62"]
+[ext_resource type="Script" path="res://scenes/entities/enemies/muscular_eye/musuclar_eye.gd" id="1_ldbro"]
+[ext_resource type="Shader" path="res://scripts/utils/flash.gdshader" id="2_sqe83"]
+[ext_resource type="AudioStream" uid="uid://ci8sbfyqy7t6g" path="res://assets/audio/falling-bomb-41038.mp3" id="4_beate"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mnfen"]
+shader = ExtResource("2_sqe83")
+shader_parameter/flash_color = Color(1, 0, 0, 1)
+shader_parameter/flash_value = null
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_edxfm"]
+radius = 24.0208
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r6imf"]
+radius = 268.477
+
+[sub_resource type="Animation" id="Animation_novb8"]
+resource_name = "damage"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/flash_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [null, 1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ytm5p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/flash_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [null]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_guh37"]
+_data = {
+"RESET": SubResource("Animation_ytm5p"),
+"damage": SubResource("Animation_novb8")
+}
+
+[node name="MusuclarEye" type="CharacterBody2D"]
+script = ExtResource("1_ldbro")
+max_health = 10
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_mnfen")
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_k3f62")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_edxfm")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_postprocessing = 1
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_r6imf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_guh37")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_beate")
+pitch_scale = 8.0
+
+[node name="ShootTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
