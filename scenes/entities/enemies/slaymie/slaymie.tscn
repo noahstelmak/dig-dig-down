@@ -1,7 +1,95 @@
-[gd_scene load_steps=5 format=3 uid="uid://5eh1gjfjv5iy"]
+[gd_scene load_steps=16 format=3 uid="uid://5eh1gjfjv5iy"]
 
 [ext_resource type="Script" path="res://scenes/entities/enemies/slaymie/slaymie.gd" id="1_rxi8c"]
-[ext_resource type="Texture2D" uid="uid://jfsxxhmudblc" path="res://icon.svg" id="2_3ik6d"]
+[ext_resource type="Texture2D" uid="uid://do3py3ni52yps" path="res://assets/DwarvenDelve/Characters/Enemies/SlimeSheet.png" id="2_h48ov"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tjrhy"]
+atlas = ExtResource("2_h48ov")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jw3ru"]
+atlas = ExtResource("2_h48ov")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_syvh8"]
+atlas = ExtResource("2_h48ov")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5i4b"]
+atlas = ExtResource("2_h48ov")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dka7w"]
+atlas = ExtResource("2_h48ov")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_muwle"]
+atlas = ExtResource("2_h48ov")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0b11w"]
+atlas = ExtResource("2_h48ov")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_atw3d"]
+atlas = ExtResource("2_h48ov")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u7son"]
+atlas = ExtResource("2_h48ov")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2013c"]
+atlas = ExtResource("2_h48ov")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_on3pu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tjrhy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jw3ru")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_syvh8")
+}],
+"loop": false,
+"name": &"Die",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b5i4b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dka7w")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_muwle")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0b11w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_atw3d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u7son")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2013c")
+}],
+"loop": true,
+"name": &"Jump",
+"speed": 8.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_un4ls"]
 size = Vector2(32, 32)
@@ -15,9 +103,11 @@ motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_rxi8c")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_3ik6d")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_on3pu")
+animation = &"Die"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_un4ls")
@@ -30,5 +120,6 @@ path_postprocessing = 1
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_emrgq")
 
+[connection signal="imdying" from="." to="." method="_on_imdying"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

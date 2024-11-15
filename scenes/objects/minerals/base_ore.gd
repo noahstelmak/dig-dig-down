@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-class_name  Ore
+class_name Ore
 
 @export var max_health : float # O Noah quis usar Float
 @export var chunk : PackedScene
@@ -9,7 +9,6 @@ class_name  Ore
 @onready var current_health : float = max_health
 
 
-signal fall_to_pieces()
 signal health_changed(current_health : float, max_health : float)
 
 

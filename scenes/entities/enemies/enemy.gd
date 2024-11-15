@@ -7,6 +7,7 @@ class_name Enemy
 var knockback := Vector2.ZERO
 
 var invunabler = false
+signal imdying 
 
 func receive_damage(damage:float, knockback_power:float, font_of_damage_position : Vector2) -> void:
 	if invunabler:
@@ -26,3 +27,4 @@ func receive_damage(damage:float, knockback_power:float, font_of_damage_position
 	await get_tree().create_timer(0.3).timeout
 	invunabler = false
 	
+		imdying.emit()
