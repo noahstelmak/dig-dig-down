@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://scripts/utils/camera_2d.gd" id="3_53suk"]
 [ext_resource type="PackedScene" uid="uid://5eh1gjfjv5iy" path="res://scenes/entities/enemies/slaymie/slaymie.tscn" id="4_33fhp"]
 [ext_resource type="PackedScene" uid="uid://bqdf5ygp4i7fn" path="res://scenes/objects/minerals/iron_ore/iron_ore.tscn" id="4_yceoc"]
-[ext_resource type="PackedScene" uid="uid://c4dwj4jba3d35" path="res://scenes/menu/ui.tscn" id="5_txosh"]
+[ext_resource type="PackedScene" uid="uid://p13aryos8w8i" path="res://scenes/menu/ui.tscn" id="5_txosh"]
 [ext_resource type="PackedScene" uid="uid://dbt667j6i60ed" path="res://scenes/objects/items/chunks/iron_chunk/IronChunk.tscn" id="6_auclh"]
 [ext_resource type="AudioStream" uid="uid://cuvdba0qcs657" path="res://assets/audio/Cave_Sound.ogg" id="7_k6gkq"]
 
@@ -30,12 +30,6 @@ max_health = 100
 [node name="IronOre" parent="." instance=ExtResource("4_yceoc")]
 position = Vector2(175, -31)
 
-[node name="UI" parent="." instance=ExtResource("5_txosh")]
-offset_left = -336.0
-offset_top = -192.0
-offset_right = -336.0
-offset_bottom = -192.0
-
 [node name="IronChunk" parent="." instance=ExtResource("6_auclh")]
 position = Vector2(192, 144)
 
@@ -43,3 +37,15 @@ position = Vector2(192, 144)
 stream = ExtResource("7_k6gkq")
 autoplay = true
 mix_target = 2
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.513233, 0.513233, 0.513233, 1)
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="UI" parent="CanvasLayer2" instance=ExtResource("5_txosh")]
+offset_left = -336.0
+offset_top = -192.0
+offset_right = -336.0
+offset_bottom = -192.0

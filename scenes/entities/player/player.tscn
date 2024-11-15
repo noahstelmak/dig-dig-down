@@ -1,9 +1,10 @@
-[gd_scene load_steps=35 format=3 uid="uid://p81ukddxm5cl"]
+[gd_scene load_steps=36 format=3 uid="uid://p81ukddxm5cl"]
 
 [ext_resource type="Script" path="res://scenes/entities/player/player.gd" id="1_g55rq"]
 [ext_resource type="PackedScene" uid="uid://doionhaksnvao" path="res://scenes/entities/player/dig_tool.tscn" id="2_7r63m"]
 [ext_resource type="Shader" path="res://scripts/utils/flash.gdshader" id="2_y7s7a"]
 [ext_resource type="Texture2D" uid="uid://gi1mhh6guufq" path="res://assets/sprites/Prototype_Character/Prototype_Character.png" id="3_jvhbg"]
+[ext_resource type="Texture2D" uid="uid://cfmjcq7e2mlbj" path="res://light.png" id="5_kmopk"]
 [ext_resource type="AudioStream" uid="uid://dj0vsni1sfanp" path="res://scenes/entities/player/ahh.mp3" id="5_rbr51"]
 [ext_resource type="AudioStream" uid="uid://b5t2a88i7b4jg" path="res://scenes/entities/player/uhh.mp3" id="6_ssey3"]
 
@@ -248,7 +249,7 @@ texture_filter = 1
 material = SubResource("ShaderMaterial_rqu50")
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_ooesi")
-animation = &"dying"
+animation = &"walk_side"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 8)
@@ -272,5 +273,12 @@ stream = ExtResource("5_rbr51")
 
 [node name="uhh" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_ssey3")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-2.27374e-13, -4.76837e-07)
+scale = Vector2(0.886719, 0.871094)
+energy = 0.75
+shadow_enabled = true
+texture = ExtResource("5_kmopk")
 
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bqdf5ygp4i7fn"]
+[gd_scene load_steps=7 format=3 uid="uid://bqdf5ygp4i7fn"]
 
 [ext_resource type="Script" path="res://scenes/objects/minerals/iron_ore/iron_ore.gd" id="1_xfigp"]
 [ext_resource type="Texture2D" uid="uid://hk8em4llkhjp" path="res://assets/sprites/objects/minerals/iron_ore.png" id="2_c2cyn"]
@@ -7,6 +7,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sqvgr"]
 size = Vector2(34, 38)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_r0jkh"]
+polygon = PackedVector2Array(-24, 29, 24, 29, 24, 21, 20, 21, 20, 13, 16, 13, 16, 5, 12, 5, 12, -7, 8, -7, 8, -11, 4, -11, 4, -15, 0, -15, 0, -23, -8, -23, -8, -15, -12, -15, -12, -7, -16, -7, -16, 1, -20, 1, -20, 17, -24, 17)
 
 [node name="IronOre" type="StaticBody2D"]
 script = ExtResource("1_xfigp")
@@ -27,5 +30,8 @@ frame_progress = 0.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 9)
 shape = SubResource("RectangleShape2D_sqvgr")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_r0jkh")
 
 [connection signal="health_changed" from="." to="BreakingAnimation" method="update_state"]
