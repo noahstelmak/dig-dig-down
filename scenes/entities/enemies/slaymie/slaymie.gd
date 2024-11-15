@@ -11,10 +11,9 @@ var isDying: bool = false;
 
 func _ready() -> void:
 	nav.target_position = Vector2(250,100)
-	
+
 
 func _physics_process(delta: float) -> void:
-	
 	if isDying:
 		if $AnimatedSprite2D.is_playing():
 			return;
@@ -24,15 +23,15 @@ func _physics_process(delta: float) -> void:
 			return
 	
 	if target:
-		modulate = "#fb0000"
 		targetCooldown -= delta
-		$AnimatedSprite2D.play("Jump")
 		if targetCooldown <= 0:
 			nav.target_position = target.global_position
 			targetCooldown = targetRefresh
+	
+	if velocity:
+		$AnimatedSprite2D.play("Jump")
 	else:
 		$AnimatedSprite2D.play("Idle")
-		modulate = "#00fb00"
 	
 	var dir = Vector2.ZERO; 
 	
@@ -47,14 +46,17 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
+
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player:
 		targetCooldown = 0
 		target = body
 
+
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body is Player:
 		target = null
+
 
 func _on_imdying():
 	$AnimatedSprite2D.play("Die");

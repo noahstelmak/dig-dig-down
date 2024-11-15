@@ -15,12 +15,13 @@ func receive_damage(damage:float, knockback_power:float, font_of_damage_position
 		return
 	invunabler = true
 	
+	$AnimationPlayer.play("damage")
+	
 	var knockback_direction = font_of_damage_position.direction_to(global_position)
 	knockback = knockback_direction * knockback_power
 	
 	current_health -= damage
 	current_health = clamp(current_health, 0.0, max_health)
-	print(current_health)
 	
 	if current_health <= 0.0:
 		imdying.emit()

@@ -1,8 +1,14 @@
-[gd_scene load_steps=24 format=3 uid="uid://p81ukddxm5cl"]
+[gd_scene load_steps=30 format=3 uid="uid://p81ukddxm5cl"]
 
 [ext_resource type="Script" path="res://scenes/entities/player/player.gd" id="1_g55rq"]
 [ext_resource type="PackedScene" uid="uid://doionhaksnvao" path="res://scenes/entities/player/dig_tool.tscn" id="2_7r63m"]
+[ext_resource type="Shader" path="res://scripts/utils/flash.gdshader" id="2_y7s7a"]
 [ext_resource type="Texture2D" uid="uid://gi1mhh6guufq" path="res://assets/sprites/Prototype_Character/Prototype_Character.png" id="3_jvhbg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rqu50"]
+shader = ExtResource("2_y7s7a")
+shader_parameter/flash_color = Color(1, 0.377991, 0.31005, 1)
+shader_parameter/flash_value = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m8jhq"]
 atlas = ExtResource("3_jvhbg")
@@ -165,11 +171,53 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_utw1k"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_30krh"]
+radius = 12.0
+height = 44.0
+
+[sub_resource type="Animation" id="Animation_3yawh"]
+resource_name = "damage"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/flash_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_r4rhl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/flash_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_02ait"]
+_data = {
+"RESET": SubResource("Animation_r4rhl"),
+"damage": SubResource("Animation_3yawh")
+}
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_g55rq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+material = SubResource("ShaderMaterial_rqu50")
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_ooesi")
 animation = &"idle_side"
@@ -181,6 +229,15 @@ shape = SubResource("CircleShape2D_utw1k")
 
 [node name="DigTool" parent="." instance=ExtResource("2_7r63m")]
 position = Vector2(0, -1)
-dig_power = 30.0
-pain_power = 10.0
-knockback_power = 1000
+
+[node name="HitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("CapsuleShape2D_30krh")
+
+[node name="DamageAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_02ait")
+}
+
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
