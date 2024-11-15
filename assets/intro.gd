@@ -9,7 +9,7 @@ func _ready():
 	#get_tree().change_scene("res://scenes/menu/main_menu/main_menu.tscn")
 	get_tree().current_scene = scene
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("escape"):
 		#get_tree().change_scene("res://scenes/menu/main_menu/main_menu.tscn")
 		get_tree().current_scene = scene
