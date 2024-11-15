@@ -2,6 +2,7 @@ extends StaticBody2D
 
 class_name Ore
 
+
 @export var max_health : float # O Noah quis usar Float
 @export var chunk : PackedScene
 
@@ -33,4 +34,5 @@ func receive_damage(damage:float) -> void:
 #       método num sinal e deixar os nodes pais lidarem com ele
 func spawn_chunk() -> void:
 	chunk_instance.position = position
-	get_parent().add_child(chunk_instance)
+	get_tree().current_scene.call_deferred("add_child", chunk_instance)
+	#get_parent().add_child(chunk_instance)
