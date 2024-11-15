@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4dwj4jba3d35"]
+
+[ext_resource type="Script" path="res://scenes/menu/ui.gd" id="1_l7w21"]
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("1_l7w21")
+metadata/_edit_use_anchors_ = true
+
+[node name="CoinCounter" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "00
+"

@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 class_name Enemy
 
+@export var coin_value: int = 1;
 @export var max_health := 30 
 @onready var current_health : float = max_health
 var knockback := Vector2.ZERO

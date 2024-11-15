@@ -2,6 +2,7 @@ extends StaticBody2D
 
 class_name Ore
 
+
 @export var max_health : float # O Noah quis usar Float
 @export var chunk : PackedScene
 

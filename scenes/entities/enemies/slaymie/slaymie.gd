@@ -19,6 +19,7 @@ func _physics_process(delta: float) -> void:
 		if $AnimatedSprite2D.is_playing():
 			return;
 		else:
+			Globals.COIN_ORE_COUNT += coin_value
 			queue_free();
 			return
 	

@@ -1,12 +1,32 @@
-[gd_scene load_steps=3 format=3 uid="uid://dbt667j6i60ed"]
+[gd_scene load_steps=5 format=3 uid="uid://dbt667j6i60ed"]
 
 [ext_resource type="Script" path="res://scenes/objects/items/chunks/iron_chunk/iron_chunk.gd" id="1_y3ngf"]
 [ext_resource type="Texture2D" uid="uid://c4viqt3x2ap50" path="res://assets/sprites/items/chunks/iron_chunk.png" id="2_ag7wg"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_6s4ib"]
+radius = 90.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xhcw7"]
+radius = 25.02
+
 [node name="IronChunk" type="Node2D"]
 script = ExtResource("1_y3ngf")
 
-[node name="IronChunk" type="Sprite2D" parent="."]
+[node name="AttractArea" type="Area2D" parent="."]
+
+[node name="ColisionShape2D" type="CollisionShape2D" parent="AttractArea"]
+shape = SubResource("CircleShape2D_6s4ib")
+
+[node name="CollectionArea" type="Area2D" parent="."]
+
+[node name="ColisionShape2D" type="CollisionShape2D" parent="CollectionArea"]
+shape = SubResource("CircleShape2D_xhcw7")
+
+[node name="IronChunk2" type="Sprite2D" parent="."]
 texture_filter = 1
 scale = Vector2(4, 4)
 texture = ExtResource("2_ag7wg")
+
+[connection signal="body_entered" from="AttractArea" to="." method="_on_attract_area_body_entered"]
+[connection signal="body_exited" from="AttractArea" to="." method="_on_attract_area_body_exited"]
+[connection signal="body_entered" from="CollectionArea" to="." method="_on_collection_area_body_entered"]
