@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="dig-dig-down"
+run/main_scene="res://floor_i.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 boot_splash/bg_color=Color(0.0235294, 0.0627451, 0.0666667, 1)
 config/icon="res://icon.svg"
