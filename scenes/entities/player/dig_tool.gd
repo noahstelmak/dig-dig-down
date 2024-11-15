@@ -28,7 +28,7 @@ func dig():
 	toggle_animation *= -1
 	ANIMATION_PLAYER.play("digging")
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	_get_input();
 
 
