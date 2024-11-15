@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var ANIMATION_PLAYER: AnimationPlayer = $AnimationPlayer;
+@onready var ANIMATION_PLAYER: AnimationPlayer = $DigToolPart/AnimationPlayer;
 
 @export var dig_power := 30.0
 @export var pain_power := 10.0
@@ -9,7 +9,6 @@ extends Node2D
 var toggle_animation = -1
 
 func _get_input():
-	#Handles the "DIG" tool position
 	var mouse_position: Vector2 = get_global_mouse_position()
 	
 	scale.x = 1 * toggle_animation
@@ -19,14 +18,14 @@ func _get_input():
 	look_at(mouse_position);
 	rotate(PI/2)
 	
-	if Input.is_action_just_pressed("dig"):
+	if Input.is_action_just_pressed("dig") and not ANIMATION_PLAYER.is_playing():
 		dig()
 
+
 func dig():
-	if ANIMATION_PLAYER.is_playing():
-		return
 	toggle_animation *= -1
 	ANIMATION_PLAYER.play("digging")
+
 
 func _physics_process(delta):
 	_get_input();

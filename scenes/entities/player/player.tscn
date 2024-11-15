@@ -180,3 +180,4 @@ position = Vector2(0, 8)
 shape = SubResource("CircleShape2D_utw1k")
 
 [node name="DigTool" parent="." instance=ExtResource("2_7r63m")]
+position = Vector2(0, -1)

@@ -26,7 +26,7 @@ func play_animations(direction: Vector2):
 			$AnimatedSprite2D.flip_h = false
 			$AnimatedSprite2D.play("idle_front")
 		elif angle > -3 * PI / 4 and angle <= -PI / 4:
-			$DigTool.z_index = -1
+			$DigTool.z_index = 1
 			$AnimatedSprite2D.flip_h = false
 			$AnimatedSprite2D.play("idle_back")
 		else:
