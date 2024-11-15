@@ -1,0 +1,290 @@
+[gd_scene load_steps=9 format=3 uid="uid://cxshnwfrf82xj"]
+
+[ext_resource type="Script" path="res://scenes/menu/main_menu/main_menu.gd" id="1_61ir7"]
+[ext_resource type="Texture2D" uid="uid://blal5auo23of0" path="res://assets/sprites/background/night_sky.png" id="1_k1y55"]
+[ext_resource type="Texture2D" uid="uid://dehis5ham25ke" path="res://assets/sprites/background/main_menu_background.png" id="1_robjl"]
+[ext_resource type="FontFile" uid="uid://dgfscitvvbg03" path="res://assets/fonts/Anglorunic-q44q.ttf" id="3_e1sxq"]
+[ext_resource type="PackedScene" uid="uid://4wiuoxrmldnl" path="res://scripts/utils/move_parent_around/move_parent_around.tscn" id="5_bow04"]
+
+[sub_resource type="Animation" id="Animation_624bj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PressAnyButtonLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.521569)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Logo/Dig:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Logo/Dig2:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Logo/Down:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Camera2D:zoom")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Camera2D:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(576, 324)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("FadeRect:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.184314, 0.184314, 0.184314, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ulqf7"]
+resource_name = "start_game"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PressAnyButtonLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.1),
+"transitions": PackedFloat32Array(1, 6.72717),
+"update": 0,
+"values": [Color(1, 1, 1, 0.521569), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Logo/Dig:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.06667, 1.53333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Logo/Dig2:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.7, 2.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Logo/Down:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2.2, 3.23333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Camera2D:zoom")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(3.69, 3.7, 5.72333, 5.73333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.4, 1.4), Vector2(1.4, 1.4), Vector2(2, 2)]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"emit_signal_start_game"
+}]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Camera2D:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(3.5, 3.7, 5.72333, 5.73333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(576, 324), Vector2(576, 324), Vector2(576, 324), Vector2(640, 288)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("FadeRect:color")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(3.2, 3.7, 4.2, 5.2333, 5.73333, 6.2333, 7.36667, 7.8667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.172549, 0.141176, 0.313726, 0), Color(0.172549, 0.141176, 0.313726, 1), Color(0.184314, 0.184314, 0.184314, 0), Color(0.184314, 0.184314, 0.184314, 0), Color(0.172549, 0.141176, 0.313726, 1), Color(0.184314, 0.184314, 0.184314, 0), Color(0.184314, 0.184314, 0.184314, 0), Color(0.172549, 0.141176, 0.313726, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_itdgv"]
+_data = {
+"RESET": SubResource("Animation_624bj"),
+"start_game": SubResource("Animation_ulqf7")
+}
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_61ir7")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_k1y55")
+stretch_mode = 1
+flip_h = true
+flip_v = true
+metadata/_edit_lock_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_right = 1153.0
+offset_bottom = 647.0
+color = Color(0.158363, 0.195572, 0.375954, 0.372549)
+metadata/_edit_lock_ = true
+
+[node name="MainMenuBackground" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(576, 324)
+scale = Vector2(8, 8)
+texture = ExtResource("1_robjl")
+metadata/_edit_lock_ = true
+
+[node name="Logo" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Dig" type="RichTextLabel" parent="Logo"]
+offset_left = 111.0
+offset_top = 62.0
+offset_right = 268.0
+offset_bottom = 197.0
+theme_override_fonts/normal_font = ExtResource("3_e1sxq")
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "[center][wave amp=50.0 freq=5.0 connected=1]Dig"
+
+[node name="Dig2" type="RichTextLabel" parent="Logo"]
+offset_left = 294.0
+offset_top = 130.0
+offset_right = 451.0
+offset_bottom = 239.0
+theme_override_fonts/normal_font = ExtResource("3_e1sxq")
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "[center][wave amp=50.0 freq=5.0 connected=1]Dig"
+
+[node name="Down" type="RichTextLabel" parent="Logo"]
+offset_left = 96.0
+offset_top = 249.0
+offset_right = 601.0
+offset_bottom = 382.0
+theme_override_colors/default_color = Color(1, 0.8, 0.00784314, 1)
+theme_override_fonts/normal_font = ExtResource("3_e1sxq")
+theme_override_font_sizes/normal_font_size = 90
+bbcode_enabled = true
+text = "[center][shake rate=4 level=30 connected=0]D O W N[/shake]"
+
+[node name="PressAnyButtonLabel" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0.521569)
+offset_top = 376.0
+offset_right = 1152.0
+offset_bottom = 632.0
+theme_override_font_sizes/font_size = 40
+text = "press any button"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="MoveParentAround" parent="PressAnyButtonLabel" instance=ExtResource("5_bow04")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_itdgv")
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)
+
+[node name="FadeRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.184314, 0.184314, 0.184314, 0)
+metadata/_edit_lock_ = true

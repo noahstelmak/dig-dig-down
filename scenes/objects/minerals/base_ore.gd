@@ -12,6 +12,7 @@ class_name  BaseOre
 signal fall_to_pieces()
 signal health_changed(current_health : float, max_health : float)
 
+
 func _ready() -> void:
 	assert(chunk_instance is BaseChunk, "Exported var 'chunk' must be an instance of 'BaseChunk'")
 
@@ -23,7 +24,7 @@ func receive_damage(damage:float) -> void:
 	print(current_health)
 	health_changed.emit(current_health, max_health)
 	
-	if current_health == 0:
+	if current_health >= 0.0:
 		spawn_chunk()
 		queue_free()
 
