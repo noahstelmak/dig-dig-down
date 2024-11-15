@@ -6,6 +6,7 @@ class_name  Player
 @export var HEALTH: float = MAX_HEALTH;
 
 var knockback = Vector2.ZERO
+var isDying: bool = false;
 
 func _ready():
 	pass
@@ -56,22 +57,33 @@ func handle_movement(direction: Vector2):
 	knockback = knockback.lerp(Vector2.ZERO, 0.1)
 	
 func _physics_process(_delta):
+	if isDying:
+		if $AnimatedSprite2D.is_playing():
+			return
+		else:
+			queue_free()
+			
 	get_input();
 	move_and_slide();
 
 
 func _on_hit_box_body_entered(body: Node2D) -> void:
-	if body is Enemy:
+	
+	if body is Enemy and not isDying:
 		Globals.screan_shake.emit()
 		Globals.PLAYER_HEALTH -= 1
 		
+		if randi_range(0, 1) == 1:
+			$ahh.play()
+		else:
+			$uhh.play()
+			
 		if Globals.PLAYER_HEALTH <= 0:
-			queue_free()
+			$AnimatedSprite2D.play("dying")
+			isDying = true
 		
 		$DamageAnimation.play("damage")
 		
 		var knockbackForce = global_position.direction_to(body.global_position) * 500
 		body.knockback = knockbackForce
 		knockback = knockbackForce * -1
-		
-		

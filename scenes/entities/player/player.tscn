@@ -1,14 +1,28 @@
-[gd_scene load_steps=30 format=3 uid="uid://p81ukddxm5cl"]
+[gd_scene load_steps=35 format=3 uid="uid://p81ukddxm5cl"]
 
 [ext_resource type="Script" path="res://scenes/entities/player/player.gd" id="1_g55rq"]
 [ext_resource type="PackedScene" uid="uid://doionhaksnvao" path="res://scenes/entities/player/dig_tool.tscn" id="2_7r63m"]
 [ext_resource type="Shader" path="res://scripts/utils/flash.gdshader" id="2_y7s7a"]
 [ext_resource type="Texture2D" uid="uid://gi1mhh6guufq" path="res://assets/sprites/Prototype_Character/Prototype_Character.png" id="3_jvhbg"]
+[ext_resource type="AudioStream" uid="uid://dj0vsni1sfanp" path="res://scenes/entities/player/ahh.mp3" id="5_rbr51"]
+[ext_resource type="AudioStream" uid="uid://b5t2a88i7b4jg" path="res://scenes/entities/player/uhh.mp3" id="6_ssey3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rqu50"]
 shader = ExtResource("2_y7s7a")
 shader_parameter/flash_color = Color(1, 0.377991, 0.31005, 1)
 shader_parameter/flash_value = 0.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwiqp"]
+atlas = ExtResource("3_jvhbg")
+region = Rect2(0, 352, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_auaup"]
+atlas = ExtResource("3_jvhbg")
+region = Rect2(32, 352, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0vjk"]
+atlas = ExtResource("3_jvhbg")
+region = Rect2(64, 352, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m8jhq"]
 atlas = ExtResource("3_jvhbg")
@@ -84,6 +98,20 @@ region = Rect2(96, 128, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ooesi"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gwiqp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_auaup")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m0vjk")
+}],
+"loop": false,
+"name": &"dying",
+"speed": 3.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_m8jhq")
@@ -220,8 +248,7 @@ texture_filter = 1
 material = SubResource("ShaderMaterial_rqu50")
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_ooesi")
-animation = &"idle_side"
-frame_progress = 0.275677
+animation = &"dying"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 8)
@@ -239,5 +266,11 @@ shape = SubResource("CapsuleShape2D_30krh")
 libraries = {
 "": SubResource("AnimationLibrary_02ait")
 }
+
+[node name="ahh" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_rbr51")
+
+[node name="uhh" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_ssey3")
 
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
