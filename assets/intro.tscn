@@ -1,10 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://cyijruujl5lu3"]
+[gd_scene load_steps=13 format=3 uid="uid://dkf5db3mxiy4t"]
 
 [ext_resource type="Texture2D" uid="uid://8uisejgdrxc3" path="res://assets/intro/prisma.png" id="1"]
 [ext_resource type="Texture2D" uid="uid://dp151s0fayfcg" path="res://assets/intro/parte pequena.png" id="2"]
+[ext_resource type="FontFile" uid="uid://5jppva58oux5" path="res://assets/fonts/Clarendon/Clarendon-Regular.ttf" id="2_swf48"]
 [ext_resource type="Texture2D" uid="uid://mg65gjws57tr" path="res://assets/intro/parte grande.png" id="3"]
 [ext_resource type="Script" path="res://assets/intro.gd" id="4"]
+[ext_resource type="FontFile" uid="uid://ce5wcr3ia5y84" path="res://assets/fonts/Zrnic/zrnic rg.ttf" id="7_8mm6b"]
 [ext_resource type="Texture2D" uid="uid://17g1p81nuuqe" path="res://assets/intro/logo t5n ps1.png" id="8"]
+[ext_resource type="FontFile" uid="uid://h5vhplds0bb4" path="res://assets/fonts/Roboto/Roboto-Medium.ttf" id="8_jehd4"]
 [ext_resource type="AudioStream" uid="uid://b6tnm2m5d5pxm" path="res://assets/fonts/Roboto/ps_1.mp3" id="9"]
 
 [sub_resource type="Animation" id="1"]
@@ -84,38 +87,38 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("catolicaSc:custom_colors/font_color")
+tracks/6/path = NodePath("logoT5n:texture")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0, 0.184314, 0.584314, 1)]
+"values": [ExtResource("8")]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("PacfaseIII2022:custom_colors/font_color")
+tracks/7/path = NodePath("catolicaSc:modulate")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0, 0.184314, 0.584314, 1)]
+"values": [Color(1, 1, 1, 0)]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("logoT5n:texture")
+tracks/8/path = NodePath("PacfaseIII2022:modulate")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ExtResource("8")]
+"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="2"]
@@ -196,35 +199,35 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("catolicaSc:custom_colors/font_color")
+tracks/6/path = NodePath("logoT5n:modulate")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 2.7, 3.3, 8.1, 8.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 9, 9.9),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(0, 0.184314, 0.584314, 0), Color(0, 0.184314, 0.584314, 0), Color(0, 0.184314, 0.584314, 1), Color(0, 0.184314, 0.584314, 1), Color(0, 0.184314, 0.584314, 0)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("PacfaseIII2022:custom_colors/font_color")
+tracks/7/path = NodePath("Top5Nacional:modulate")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0, 2.7, 3.3, 8.1, 8.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 9.8, 11.1),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(0, 0.184314, 0.584314, 0), Color(0, 0.184314, 0.584314, 0), Color(0, 0.184314, 0.584314, 1), Color(0, 0.184314, 0.584314, 1), Color(0, 0.184314, 0.584314, 0)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("logoT5n:modulate")
+tracks/8/path = NodePath("frase:modulate")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0, 9, 9.9),
+"times": PackedFloat32Array(0, 9.5, 10.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -232,26 +235,26 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Top5Nacional:modulate")
+tracks/9/path = NodePath("catolicaSc:modulate")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(0, 9.8, 11.1),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(2.7, 3.3, 8.1, 8.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("frase:modulate")
+tracks/10/path = NodePath("PacfaseIII2022:modulate")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(0, 9.5, 10.2),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(2.7, 3.3, 8.1, 8.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wos3r"]
@@ -267,18 +270,38 @@ script = ExtResource("4")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="catolicaSc" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 369.0
+offset_top = 63.0
+offset_right = 784.0
+offset_bottom = 151.0
+theme_override_colors/font_color = Color(0, 0.184314, 0.584314, 1)
+theme_override_fonts/font = ExtResource("2_swf48")
+theme_override_font_sizes/font_size = 70
 text = "Católica SC"
 
 [node name="PacfaseIII2022" type="Label" parent="."]
-text = "Pac fase III 2022. "
+modulate = Color(1, 1, 1, 0)
+offset_left = 403.0
+offset_top = 478.0
+offset_right = 746.0
+offset_bottom = 529.0
+theme_override_colors/font_color = Color(0, 0.184314, 0.584314, 1)
+theme_override_fonts/font = ExtResource("2_swf48")
+theme_override_font_sizes/font_size = 40
+text = "GameJam ESoft
+ Jaraguá do sul"
 
 [node name="Sprite" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(-146, -73)
+position = Vector2(-84, -63)
 scale = Vector2(1.3, 1.3)
+metadata/_edit_group_ = true
 
 [node name="Prisma" type="Sprite2D" parent="Sprite"]
 position = Vector2(509, 315)
@@ -308,16 +331,29 @@ libraries = {
 }
 
 [node name="logoT5n" type="Sprite2D" parent="."]
-position = Vector2(443, 330)
+position = Vector2(512, 381)
 scale = Vector2(2.2, 2.2)
 texture = ExtResource("8")
 
 [node name="Top5Nacional" type="Label" parent="."]
+offset_left = 455.0
+offset_top = 401.0
+offset_right = 716.0
+offset_bottom = 460.0
+theme_override_fonts/font = ExtResource("7_8mm6b")
+theme_override_font_sizes/font_size = 50
 text = "Top5Nacional"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="frase" type="Label" parent="."]
-text = "Style Knight
-Bruno Vinicius Lópes, Gustavo Satig, Noah Stelmak Bussmann,
+offset_left = 342.0
+offset_top = 514.0
+offset_right = 824.0
+offset_bottom = 589.0
+theme_override_fonts/font = ExtResource("8_jehd4")
+text = "Dig Dig Down
+Bruno Vinicius Lópes, (Ben e Noah) Stelmak Bussmann,
 Pedro Henrique Steinmacher Engelhardt"
 horizontal_alignment = 1
 
