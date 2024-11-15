@@ -30,12 +30,6 @@ position = Vector2(945, 292)
 [node name="IronOre" parent="." instance=ExtResource("4_yceoc")]
 position = Vector2(175, -31)
 
-[node name="UI" parent="." instance=ExtResource("5_txosh")]
-offset_left = -336.0
-offset_top = -192.0
-offset_right = -336.0
-offset_bottom = -192.0
-
 [node name="IronChunk" parent="." instance=ExtResource("6_auclh")]
 position = Vector2(192, 144)
 
@@ -43,7 +37,3 @@ position = Vector2(192, 144)
 stream = ExtResource("7_k6gkq")
 autoplay = true
 mix_target = 2
-
-[node name="MusuclarEye" parent="." instance=ExtResource("9_63kb1")]
-position = Vector2(-170, 80)
-max_health = 30
