@@ -26,12 +26,8 @@ func dig():
 	toggle_animation *= -1
 	ANIMATION_PLAYER.play("digging")
 
-<<<<<<< HEAD
 
-func _physics_process(delta):
-=======
 func _physics_process(_delta):
->>>>>>> cb1ee751ab628cbbeb3ecb53d309879881c91557
 	_get_input();
 
 

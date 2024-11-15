@@ -22,9 +22,7 @@ func receive_damage(damage:float, knockback_power:float, font_of_damage_position
 	print(current_health)
 	
 	if current_health <= 0.0:
-		queue_free()
+		imdying.emit()
 	
 	await get_tree().create_timer(0.3).timeout
 	invunabler = false
-	
-		imdying.emit()
