@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://5eh1gjfjv5iy"]
+
+[ext_resource type="Script" path="res://scenes/entities/enemies/slaymie/slaymie.gd" id="1_rxi8c"]
+[ext_resource type="Texture2D" uid="uid://jfsxxhmudblc" path="res://icon.svg" id="2_3ik6d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_un4ls"]
+size = Vector2(32, 32)
+
+[node name="Slaymie" type="CharacterBody2D"]
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_rxi8c")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_3ik6d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_un4ls")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_postprocessing = 1
