@@ -67,12 +67,12 @@ metadata/_edit_group_ = true
 position = Vector2(0, 10)
 
 [node name="Head" type="Polygon2D" parent="DigTool"]
-z_index = 1
 position = Vector2(0, -8)
 color = Color(0.156378, 0.408064, 0.501057, 1)
 polygon = PackedVector2Array(-16, -10, -8, -16, -4, -18, -2, -16, 2, -16, 4, -18, 8, -16, 16, -10, 16, -14, 8, -22, 1.85774, -24, -2, -24, -8, -22, -16, -14)
 
 [node name="Handle" type="Polygon2D" parent="DigTool"]
+z_index = -1
 position = Vector2(0, -8)
 color = Color(0.267233, 0.201782, 0.138356, 1)
 polygon = PackedVector2Array(-2, 12, 0, 16, 2, 12, 2, -20, 0, -28, -2, -20)
