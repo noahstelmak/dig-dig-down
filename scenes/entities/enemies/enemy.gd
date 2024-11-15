@@ -16,7 +16,7 @@ func receive_damage(damage:float, knockback_power:float, font_of_damage_position
 	invunabler = true
 	
 	$AnimationPlayer.play("damage")
-	
+	$AudioStreamPlayer.play()
 	var knockback_direction = font_of_damage_position.direction_to(global_position)
 	knockback = knockback_direction * knockback_power
 	

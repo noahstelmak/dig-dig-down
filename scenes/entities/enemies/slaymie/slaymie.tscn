@@ -1,8 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://5eh1gjfjv5iy"]
+[gd_scene load_steps=22 format=3 uid="uid://5eh1gjfjv5iy"]
 
 [ext_resource type="Shader" path="res://scripts/utils/flash.gdshader" id="1_btvpw"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/slaymie/slaymie.gd" id="1_rxi8c"]
 [ext_resource type="Texture2D" uid="uid://do3py3ni52yps" path="res://assets/DwarvenDelve/Characters/Enemies/SlimeSheet.png" id="2_h48ov"]
+[ext_resource type="AudioStream" uid="uid://ci8sbfyqy7t6g" path="res://assets/audio/falling-bomb-41038.mp3" id="4_ma3mc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ksceq"]
 shader = ExtResource("1_btvpw")
@@ -167,6 +168,10 @@ shape = SubResource("CircleShape2D_emrgq")
 libraries = {
 "": SubResource("AnimationLibrary_5kp1y")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ma3mc")
+pitch_scale = 8.0
 
 [connection signal="imdying" from="." to="." method="_on_imdying"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

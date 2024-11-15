@@ -38,5 +38,6 @@ func _on_dig_tool_body_entered(body: Node2D) -> void:
 		return
 	if body is Ore:
 		print("Ore!")
+		$AudioStreamPlayer.play()
 		body.receive_damage(dig_power)
 		return
