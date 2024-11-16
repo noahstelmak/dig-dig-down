@@ -13,7 +13,6 @@ var targetCooldown = 0
 var isDying: bool = false;
 
 func _ready() -> void:
-	nav.target_position = Vector2(250,100)
 	imdying.connect(_on_imdying)
 
 
