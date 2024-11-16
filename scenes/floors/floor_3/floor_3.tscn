@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://cngoh1v3kkkqc"]
+[gd_scene load_steps=8 format=4 uid="uid://bolo6o048kp2s"]
 
 [ext_resource type="Script" path="res://scenes/floors/floor_3/floor_3.gd" id="1_vd87y"]
 [ext_resource type="TileSet" uid="uid://cbdppwe74gqlb" path="res://assets/tilesets/DwarvenDelveTileset.tres" id="2_je8jo"]
@@ -74,5 +74,11 @@ position = Vector2(544, -776)
 
 [node name="Slaymie2" parent="Enemies" instance=ExtResource("7_g5aix")]
 position = Vector2(1024, -656)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.347817, 0.347817, 0.347817, 1)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="CanvasModulate"]
+color = Color(0.347817, 0.347817, 0.347817, 1)
 
 [connection signal="exit_entered" from="Exit" to="." method="_on_exit_exit_entered"]

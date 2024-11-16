@@ -68,4 +68,7 @@ position = Vector2(112, 104)
 [node name="IronOre11" parent="Ores" instance=ExtResource("5_v2r3f")]
 position = Vector2(576, 96)
 
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.347817, 0.347817, 0.347817, 1)
+
 [connection signal="exit_entered" from="Exit" to="." method="_on_exit_exit_entered"]
