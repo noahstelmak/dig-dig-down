@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=4 uid="uid://qwacwp7co4qu"]
 
-[ext_resource type="Script" path="res://scenes/floors/floor.gd" id="1_3a705"]
+[ext_resource type="Script" path="res://scenes/floors/floor_6/floor_6.gd" id="1_h2hk5"]
 [ext_resource type="TileSet" uid="uid://cbdppwe74gqlb" path="res://assets/tilesets/DwarvenDelveTileset.tres" id="2_311ep"]
 [ext_resource type="PackedScene" uid="uid://p81ukddxm5cl" path="res://scenes/entities/player/player.tscn" id="3_3imfk"]
 [ext_resource type="PackedScene" uid="uid://ddldwh842oe7b" path="res://scenes/entities/enemies/big_bad_boss/big_bad_boss.tscn" id="4_kppb4"]
@@ -14,7 +14,7 @@ size = Vector2(28, 384)
 size = Vector2(112.165, 124.121)
 
 [node name="FloorFinal" type="Node2D"]
-script = ExtResource("1_3a705")
+script = ExtResource("1_h2hk5")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.674815, 0.674815, 0.674815, 1)
@@ -57,4 +57,5 @@ rotation = 1.5708
 shape = SubResource("RectangleShape2D_qwm5e")
 one_way_collision = true
 
+[connection signal="morri" from="BigBadBoss" to="." method="_on_big_bad_boss_morri"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

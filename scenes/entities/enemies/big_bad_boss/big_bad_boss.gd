@@ -10,6 +10,9 @@ var canChange = 0
 var enable = false
 var target
 
+signal morri
+
+
 func _ready() -> void:
 	imdying.connect(_on_imdying)
 	target = global_position.direction_to(player.global_position)
@@ -51,6 +54,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_imdying():
+	morri.emit()
 	isDying = true;
 
 
