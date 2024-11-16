@@ -21,13 +21,15 @@ func _process(_delta: float) -> void:
 		exit_entered.emit()
 
 
-func _on_body_entered(_body: Node2D) -> void:
-	print("player dentro")
-	is_player_inside = true
-	label.visible = true
+func _on_body_entered(body: Node2D) -> void:
+	if body is Player:
+		print("player dentro")
+		is_player_inside = true
+		label.visible = true
 
 
-func _on_body_exited(_body: Node2D) -> void:
-	print("player fora")
-	is_player_inside = false
-	label.visible = false
+func _on_body_exited(body: Node2D) -> void:
+	if body is Player:
+		print("player fora")
+		is_player_inside = false
+		label.visible = false
