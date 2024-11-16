@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dcr4ciwhe68or"]
+[gd_scene load_steps=4 format=3 uid="uid://bn77s1hbgaik8"]
 
 [ext_resource type="Script" path="res://scenes/entities/enemies/muscular_eye/bullet.gd" id="1_r8xw4"]
-[ext_resource type="Texture2D" uid="uid://jfsxxhmudblc" path="res://icon.svg" id="1_x3i15"]
+[ext_resource type="Texture2D" uid="uid://cpgvi4sjr1dgj" path="res://assets/DwarvenDelve/Characters/Enemies/SpiderWebSheet.png" id="2_r7slv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j44bs"]
 size = Vector2(16, 16)
@@ -12,8 +12,10 @@ collision_mask = 2
 script = ExtResource("1_r8xw4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.15, 0.15)
-texture = ExtResource("1_x3i15")
+position = Vector2(-2.38419e-07, 2.38419e-07)
+texture = ExtResource("2_r7slv")
+hframes = 4
+frame = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_j44bs")
