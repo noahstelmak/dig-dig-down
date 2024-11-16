@@ -13,10 +13,10 @@ metadata/_edit_use_anchors_ = true
 
 [node name="CoinCounter" type="Label" parent="."]
 layout_mode = 0
-offset_left = -166.0
-offset_top = -169.0
-offset_right = -142.0
-offset_bottom = -146.0
+offset_left = -278.0
+offset_top = -257.0
+offset_right = -254.0
+offset_bottom = -234.0
 text = "00
 "
 horizontal_alignment = 1
@@ -24,10 +24,10 @@ vertical_alignment = 1
 
 [node name="HealthContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_left = -270.0
-offset_top = -170.0
-offset_right = -174.0
-offset_bottom = -146.0
+offset_left = -382.0
+offset_top = -258.0
+offset_right = -286.0
+offset_bottom = -234.0
 metadata/_edit_group_ = true
 
 [node name="TextureRect" type="TextureRect" parent="HealthContainer"]
