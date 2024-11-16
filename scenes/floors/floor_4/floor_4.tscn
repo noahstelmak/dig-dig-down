@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=4 uid="uid://4glxh4wu8yuj"]
 
 [ext_resource type="Script" path="res://scenes/floors/floor_4/floor_4.gd" id="1_wc1vt"]
-[ext_resource type="TileSet" uid="uid://n2d18hdix0xk" path="res://assets/tilesets/DwarvenDelveTileset.tres" id="2_jn64o"]
-[ext_resource type="PackedScene" uid="uid://cv5mxy8amkgt0" path="res://scenes/floors/floor_x/item.tscn" id="3_adgwe"]
+[ext_resource type="TileSet" uid="uid://cbdppwe74gqlb" path="res://assets/tilesets/DwarvenDelveTileset.tres" id="2_jn64o"]
+[ext_resource type="PackedScene" uid="uid://bpcdt8p4aca7m" path="res://scenes/floors/floor_4/item.tscn" id="3_adgwe"]
 [ext_resource type="PackedScene" uid="uid://p81ukddxm5cl" path="res://scenes/entities/player/player.tscn" id="4_qmosr"]
 [ext_resource type="PackedScene" uid="uid://dp47j8nu21jhe" path="res://scenes/objects/interactables/exit/Exit.tscn" id="5_yhnw6"]
 
