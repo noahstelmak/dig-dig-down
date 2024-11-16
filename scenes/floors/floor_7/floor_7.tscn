@@ -1,0 +1,81 @@
+[gd_scene load_steps=5 format=3 uid="uid://dijhklw1s3pfv"]
+
+[ext_resource type="Texture2D" uid="uid://blal5auo23of0" path="res://assets/sprites/background/night_sky.png" id="1_ffaij"]
+[ext_resource type="Script" path="res://scenes/floors/floor_7/floor_7.gd" id="1_xma1r"]
+[ext_resource type="Texture2D" uid="uid://dehis5ham25ke" path="res://assets/sprites/background/main_menu_background.png" id="2_q0vn6"]
+[ext_resource type="FontFile" uid="uid://dgfscitvvbg03" path="res://assets/fonts/Anglorunic-q44q.ttf" id="3_wfeug"]
+
+[node name="Floor7" type="Node2D"]
+script = ExtResource("1_xma1r")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_ffaij")
+stretch_mode = 1
+flip_h = true
+flip_v = true
+metadata/_edit_lock_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_right = 1153.0
+offset_bottom = 647.0
+color = Color(0.0353469, 0.105254, 0.212858, 0.372549)
+metadata/_edit_lock_ = true
+
+[node name="MainMenuBackground" type="Sprite2D" parent="."]
+modulate = Color(0.879877, 0.487828, 0.336724, 1)
+texture_filter = 1
+position = Vector2(576, 324)
+scale = Vector2(8, 8)
+texture = ExtResource("2_q0vn6")
+metadata/_edit_lock_ = true
+
+[node name="Thanks" type="RichTextLabel" parent="."]
+offset_left = 256.0
+offset_top = 368.0
+offset_right = 984.0
+offset_bottom = 624.0
+theme_override_colors/default_color = Color(0.999999, 0.812116, 0.193386, 1)
+theme_override_fonts/normal_font = ExtResource("3_wfeug")
+theme_override_font_sizes/normal_font_size = 90
+bbcode_enabled = true
+text = "[center][shake rate=5 level=10 connected=0]Obrigado por JOGAR!!![/shake]"
+
+[node name="Logo" type="Node2D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="Dig" type="RichTextLabel" parent="Logo"]
+offset_left = 111.0
+offset_top = 62.0
+offset_right = 268.0
+offset_bottom = 197.0
+theme_override_fonts/normal_font = ExtResource("3_wfeug")
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "[center][wave amp=50.0 freq=5.0 connected=1]Dig"
+
+[node name="Dig2" type="RichTextLabel" parent="Logo"]
+offset_left = 294.0
+offset_top = 130.0
+offset_right = 451.0
+offset_bottom = 239.0
+theme_override_fonts/normal_font = ExtResource("3_wfeug")
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "[center][wave amp=50.0 freq=5.0 connected=1]Dig"
+
+[node name="Down" type="RichTextLabel" parent="Logo"]
+offset_left = 96.0
+offset_top = 249.0
+offset_right = 601.0
+offset_bottom = 382.0
+theme_override_colors/default_color = Color(1, 0.8, 0.00784314, 1)
+theme_override_fonts/normal_font = ExtResource("3_wfeug")
+theme_override_font_sizes/normal_font_size = 90
+bbcode_enabled = true
+text = "[center][shake rate=4 level=30 connected=0]D O W N[/shake]"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
