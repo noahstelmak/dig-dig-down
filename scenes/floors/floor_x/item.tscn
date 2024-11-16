@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpcdt8p4aca7m"]
+
+[ext_resource type="Script" path="res://scenes/floors/floor_x/item.gd" id="1_s5a4e"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xvxx7"]
+radius = 80.0
+
+[node name="Item" type="Area2D"]
+script = ExtResource("1_s5a4e")
+
+[node name="Price" type="Label" parent="."]
+offset_left = -24.0
+offset_right = 24.0
+offset_bottom = 23.0
+text = "99"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name" type="Label" parent="."]
+offset_left = -72.0
+offset_top = -32.0
+offset_right = 72.0
+offset_bottom = -9.0
+text = "Placeholder"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xvxx7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
