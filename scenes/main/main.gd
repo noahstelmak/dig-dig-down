@@ -19,10 +19,10 @@ func player_morreu():
 		child.queue_free()
 	
 	var main_menu_scene := load("res://scenes/menu/main_menu/main_menu.tscn")
-	var main_menu_instance = main_menu_scene.instantiate()
-	
-	add_child(main_menu_instance)
-	
+	main_menu = main_menu_scene.instantiate()
+	main_menu.connect("start_game", _on_main_menu_start_game)
+	add_child(main_menu)
+	Globals.PLAYER_HEALTH = 5
 
 
 func _on_main_menu_start_game() -> void:

@@ -7,6 +7,7 @@ const shopItems = [
 ]
 
 func _ready():
+	Globals.PLAYER_HEALTH = 5
 	var items = $ItemSpawn.get_children();
 	for i in range(3):
 		var item = shopItems[randi_range(0, 2)]
