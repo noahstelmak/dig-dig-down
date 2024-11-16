@@ -11,3 +11,5 @@ var VELOCIDADE_NIVEL: int = 0;
 
 
 signal screan_shake
+
+signal player_ded

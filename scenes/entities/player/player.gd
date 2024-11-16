@@ -61,6 +61,7 @@ func _physics_process(_delta):
 		if $AnimatedSprite2D.is_playing():
 			return
 		else:
+			Globals.player_ded.emit()
 			queue_free()
 			
 	get_input();

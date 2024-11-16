@@ -9,6 +9,10 @@ extends Node
 @onready var floor_manager := preload("res://scenes/floors/floor_manager/floor_manager.tscn")
 
 
+func _ready() -> void:
+	Globals.player_ded.connect(player_morreu)
+
+
 func player_morreu():
 	var children := get_children()
 	for child in children:
