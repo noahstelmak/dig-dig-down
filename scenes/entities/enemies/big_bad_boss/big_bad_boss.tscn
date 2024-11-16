@@ -1,0 +1,127 @@
+[gd_scene load_steps=18 format=3 uid="uid://ddldwh842oe7b"]
+
+[ext_resource type="Script" path="res://scenes/entities/enemies/big_bad_boss/big_bad_boss.gd" id="1_6lxub"]
+[ext_resource type="Texture2D" uid="uid://bfu22guo7yh5p" path="res://assets/bigBadBoss/big_demon_run_anim_f0.png" id="2_6xe7w"]
+[ext_resource type="Shader" path="res://scripts/utils/flash.gdshader" id="2_da542"]
+[ext_resource type="Texture2D" uid="uid://cbpd6dt4a5dtv" path="res://assets/bigBadBoss/big_demon_run_anim_f1.png" id="3_3dqxw"]
+[ext_resource type="Texture2D" uid="uid://ngnetp1urjue" path="res://assets/bigBadBoss/big_demon_idle_anim_f0.png" id="3_5gxde"]
+[ext_resource type="Texture2D" uid="uid://cdgc2wcxmk302" path="res://assets/bigBadBoss/big_demon_idle_anim_f1.png" id="4_2q06r"]
+[ext_resource type="Texture2D" uid="uid://c44h8xomk7sd7" path="res://assets/bigBadBoss/big_demon_run_anim_f2.png" id="4_k20qf"]
+[ext_resource type="Texture2D" uid="uid://b4ch6u4c3t0g6" path="res://assets/bigBadBoss/big_demon_idle_anim_f2.png" id="5_6impw"]
+[ext_resource type="Texture2D" uid="uid://cqbtqt0ae3v51" path="res://assets/bigBadBoss/big_demon_run_anim_f3.png" id="5_so7vl"]
+[ext_resource type="Texture2D" uid="uid://dbasp0spvgj8r" path="res://assets/bigBadBoss/big_demon_idle_anim_f3.png" id="6_iiyfy"]
+[ext_resource type="AudioStream" uid="uid://ci8sbfyqy7t6g" path="res://assets/audio/falling-bomb-41038.mp3" id="7_vgqw6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8k4a2"]
+shader = ExtResource("2_da542")
+shader_parameter/flash_color = Color(0.625575, 1.43189e-06, 5.77569e-07, 1)
+shader_parameter/flash_value = 0.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8g840"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_5gxde")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2q06r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6impw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_iiyfy")
+}],
+"loop": true,
+"name": &"iddle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6xe7w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_3dqxw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_k20qf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_so7vl")
+}],
+"loop": true,
+"name": &"run",
+"speed": 7.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c5tt8"]
+radius = 30.5
+height = 95.0
+
+[sub_resource type="Animation" id="Animation_ut3rt"]
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/flash_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_gd34s"]
+resource_name = "damage"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/flash_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5kp1y"]
+_data = {
+"RESET": SubResource("Animation_ut3rt"),
+"damage": SubResource("Animation_gd34s")
+}
+
+[node name="BigBadBoss" type="CharacterBody2D"]
+script = ExtResource("1_6lxub")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_8k4a2")
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_8g840")
+animation = &"iddle"
+frame_progress = 0.945462
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, 6.5)
+shape = SubResource("CapsuleShape2D_c5tt8")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_postprocessing = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5kp1y")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_vgqw6")
+pitch_scale = 8.0
+
+[node name="AttackCooldown" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]

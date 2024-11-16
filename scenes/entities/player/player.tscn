@@ -295,7 +295,7 @@ offset_right = 37.888
 offset_bottom = -55.296
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
+zoom = Vector2(1.5, 1.5)
 script = ExtResource("8_rv5de")
 
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
