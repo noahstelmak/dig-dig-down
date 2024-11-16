@@ -25,7 +25,8 @@ tile_set = ExtResource("2_5ciyc")
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("3_vjmxc")]
-position = Vector2(-216, -88)
+position = Vector2(-232, -48)
+metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(1.5, 1.5)
