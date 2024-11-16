@@ -9,9 +9,6 @@ var targetCooldown = 0
 
 var isDying: bool = false;
 
-func _ready() -> void:
-	nav.target_position = Vector2(250,100)
-
 
 func _physics_process(delta: float) -> void:
 	if isDying:

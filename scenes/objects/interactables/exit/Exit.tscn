@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dp47j8nu21jhe"]
+[gd_scene load_steps=5 format=3 uid="uid://dp47j8nu21jhe"]
 
 [ext_resource type="Script" path="res://scenes/objects/interactables/exit/exit.gd" id="1_wsfwg"]
+[ext_resource type="FontFile" uid="uid://dgfscitvvbg03" path="res://assets/fonts/Anglorunic-q44q.ttf" id="2_7uyel"]
 [ext_resource type="Texture2D" uid="uid://fe6nqx575yoq" path="res://assets/DwarvenDelve/Background/CaveTilemap.png" id="2_libye"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nd1gf"]
@@ -8,7 +9,18 @@ size = Vector2(32, 32)
 
 [node name="Exit" type="Area2D"]
 script = ExtResource("1_wsfwg")
-metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = -48.0
+offset_top = -60.0
+offset_right = 912.0
+offset_bottom = 71.0
+scale = Vector2(0.1, 0.1)
+theme_override_fonts/font = ExtResource("2_7uyel")
+theme_override_font_sizes/font_size = 100
+text = "PRESSIONE ESPAÇO"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)
