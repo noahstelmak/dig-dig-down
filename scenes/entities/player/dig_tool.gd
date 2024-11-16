@@ -33,11 +33,11 @@ func _physics_process(_delta):
 
 func _on_dig_tool_body_entered(body: Node2D) -> void:
 	if body is Enemy:
-		body.receive_damage(pain_power, knockback_power, global_position)
+		body.receive_damage(pain_power + Globals.DANO_NIVEL * 10, knockback_power + Globals.DANO_NIVEL * 50, global_position)
 		print("enemy!")
 		return
 	if body is Ore:
 		print("Ore!")
 		$AudioStreamPlayer.play()
-		body.receive_damage(dig_power)
+		body.receive_damage(dig_power + Globals.MINERACAO_NIVEL * 15)
 		return

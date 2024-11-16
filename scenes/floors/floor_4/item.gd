@@ -4,8 +4,6 @@ class_name Item
 var isPlayerOn: bool = false;
 var _price: int = 0;
 var _name: String = ""
-func _ready():
-	Globals.COIN_ORE_COUNT = 100
 
 func _process(_delta):
 	if isPlayerOn and Input.is_action_just_pressed("dig") and Globals.COIN_ORE_COUNT > _price:
