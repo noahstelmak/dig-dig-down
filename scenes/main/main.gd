@@ -2,24 +2,20 @@ extends Node
 
 @export var first_scene : PackedScene
 
-
-func _ready():
-	if first_scene != null:
-		var first_scene_instance = first_scene.instantiate()
-		add_child(first_scene_instance)
+@onready var main_menu := $MainMenu
+@onready var intro := $intro
 
 
-func goto_floor(next_level : PackedScene):
-	var next_level_instance = next_level.instantiate()
-	if next_level_instance is Floor:
-		call_deferred("_deferred_goto_scene", next_level_instance)
-		return
-	push_error("INPUT ERROR: next_level doesn't extends Floor")
+@onready var floor_manager := preload("res://scenes/floors/floor_manager/floor_manager.tscn")
 
 
-func _deferred_goto_scene(next_level : Floor):
-	if current_level != null:
-		current_level.free()
-	current_level = next_level
-	current_level.end.connect(complete_level)
-	add_child(current_level)
+func _on_main_menu_start_game() -> void:
+	main_menu.queue_free()
+	var floor_manager_instance := floor_manager.instantiate()
+	add_child(floor_manager_instance)
+
+
+func _on_intro_is_over() -> void:
+	main_menu.blocked = false
+	main_menu.audio.play()
+	intro.queue_free()

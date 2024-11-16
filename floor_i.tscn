@@ -1,14 +1,13 @@
-[gd_scene load_steps=10 format=4 uid="uid://diml61at3753q"]
+[gd_scene load_steps=9 format=4 uid="uid://diml61at3753q"]
 
 [ext_resource type="TileSet" uid="uid://cbdppwe74gqlb" path="res://assets/tilesets/DwarvenDelveTileset.tres" id="1_ltsua"]
 [ext_resource type="PackedScene" uid="uid://p81ukddxm5cl" path="res://scenes/entities/player/player.tscn" id="1_rrfh1"]
 [ext_resource type="Script" path="res://scripts/utils/camera_2d.gd" id="3_53suk"]
 [ext_resource type="PackedScene" uid="uid://5eh1gjfjv5iy" path="res://scenes/entities/enemies/slaymie/slaymie.tscn" id="4_33fhp"]
 [ext_resource type="PackedScene" uid="uid://bqdf5ygp4i7fn" path="res://scenes/objects/minerals/iron_ore/iron_ore.tscn" id="4_yceoc"]
-[ext_resource type="PackedScene" uid="uid://p13aryos8w8i" path="res://scenes/menu/ui.tscn" id="5_txosh"]
 [ext_resource type="PackedScene" uid="uid://dbt667j6i60ed" path="res://scenes/objects/items/chunks/iron_chunk/IronChunk.tscn" id="6_auclh"]
 [ext_resource type="AudioStream" uid="uid://cuvdba0qcs657" path="res://assets/audio/Cave_Sound.ogg" id="7_k6gkq"]
-[ext_resource type="PackedScene" uid="uid://14totc7uajq7" path="res://scenes/entities/enemies/muscular_eye/musuclar_eye.tscn" id="9_63kb1"]
+[ext_resource type="PackedScene" uid="uid://14totc7uajq7" path="res://scenes/entities/enemies/muscular_eye/musuclar_eye.tscn" id="8_6brdu"]
 
 [node name="FloorI" type="Node2D"]
 
@@ -37,3 +36,6 @@ position = Vector2(192, 144)
 stream = ExtResource("7_k6gkq")
 autoplay = true
 mix_target = 2
+
+[node name="MusuclarEye" parent="." instance=ExtResource("8_6brdu")]
+position = Vector2(-264, -32)

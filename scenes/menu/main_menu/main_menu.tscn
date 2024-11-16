@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://cxshnwfrf82xj"]
+[gd_scene load_steps=11 format=3 uid="uid://cxshnwfrf82xj"]
 
 [ext_resource type="Script" path="res://scenes/menu/main_menu/main_menu.gd" id="1_61ir7"]
 [ext_resource type="Texture2D" uid="uid://blal5auo23of0" path="res://assets/sprites/background/night_sky.png" id="1_k1y55"]
 [ext_resource type="Texture2D" uid="uid://dehis5ham25ke" path="res://assets/sprites/background/main_menu_background.png" id="1_robjl"]
 [ext_resource type="FontFile" uid="uid://dgfscitvvbg03" path="res://assets/fonts/Anglorunic-q44q.ttf" id="3_e1sxq"]
 [ext_resource type="PackedScene" uid="uid://4wiuoxrmldnl" path="res://scripts/utils/move_parent_around/move_parent_around.tscn" id="5_bow04"]
+[ext_resource type="AudioStream" uid="uid://cuvdba0qcs657" path="res://assets/audio/Cave_Sound.ogg" id="6_nmijn"]
+[ext_resource type="AudioStream" uid="uid://bx65kgydege6e" path="res://scenes/menu/main_menu/main_menu_sfx/rocks-6129.mp3" id="7_q7t0r"]
 
 [sub_resource type="Animation" id="Animation_624bj"]
 length = 0.001
@@ -95,7 +97,7 @@ tracks/6/keys = {
 
 [sub_resource type="Animation" id="Animation_ulqf7"]
 resource_name = "start_game"
-length = 8.0
+length = 13.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -163,7 +165,7 @@ tracks/5/path = NodePath(".")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(8),
+"times": PackedFloat32Array(13),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -192,8 +194,23 @@ tracks/7/keys = {
 "times": PackedFloat32Array(3.2, 3.7, 4.2, 5.2333, 5.73333, 6.2333, 7.36667, 7.8667),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Color(0.172549, 0.141176, 0.313726, 0), Color(0.172549, 0.141176, 0.313726, 1), Color(0.184314, 0.184314, 0.184314, 0), Color(0.184314, 0.184314, 0.184314, 0), Color(0.172549, 0.141176, 0.313726, 1), Color(0.184314, 0.184314, 0.184314, 0), Color(0.184314, 0.184314, 0.184314, 0), Color(0.172549, 0.141176, 0.313726, 1)]
+"values": [Color(0.172549, 0.141176, 0.313726, 0), Color(0.224219, 0.0886241, 0.0988499, 1), Color(0.184314, 0.184314, 0.184314, 0), Color(0.184314, 0.184314, 0.184314, 0), Color(0.223529, 0.0901961, 0.0980392, 1), Color(0.184314, 0.184314, 0.184314, 0), Color(0.184314, 0.184314, 0.184314, 0), Color(0.223529, 0.0901961, 0.0980392, 1)]
 }
+tracks/8/type = "audio"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("AudioStreamPlayer")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("7_q7t0r")
+}],
+"times": PackedFloat32Array(7.8)
+}
+tracks/8/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_itdgv"]
 _data = {
@@ -222,7 +239,7 @@ color = Color(0.0353469, 0.105254, 0.212858, 0.372549)
 metadata/_edit_lock_ = true
 
 [node name="MainMenuBackground" type="Sprite2D" parent="."]
-modulate = Color(0.666982, 0.344508, 0.208877, 1)
+modulate = Color(0.879877, 0.487828, 0.336724, 1)
 texture_filter = 1
 position = Vector2(576, 324)
 scale = Vector2(8, 8)
@@ -270,7 +287,7 @@ offset_top = 376.0
 offset_right = 1152.0
 offset_bottom = 632.0
 theme_override_font_sizes/font_size = 40
-text = "press any button"
+text = "pressione ESPAÇO"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_group_ = true
@@ -291,3 +308,9 @@ offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0.184314, 0.184314, 0.184314, 0)
 metadata/_edit_lock_ = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="OminousCaveSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_nmijn")
+mix_target = 2

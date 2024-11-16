@@ -1,8 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://d1atjh80utgrl"]
+[gd_scene load_steps=4 format=3 uid="uid://d1atjh80utgrl"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_q0u3p"]
 [ext_resource type="PackedScene" uid="uid://cxshnwfrf82xj" path="res://scenes/menu/main_menu/main_menu.tscn" id="2_hdk7f"]
+[ext_resource type="PackedScene" uid="uid://dkf5db3mxiy4t" path="res://assets/intro.tscn" id="3_txta0"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_q0u3p")
 first_scene = ExtResource("2_hdk7f")
+
+[node name="intro" parent="." instance=ExtResource("3_txta0")]
+
+[node name="MainMenu" parent="." instance=ExtResource("2_hdk7f")]
+
+[connection signal="is_over" from="intro" to="." method="_on_intro_is_over"]
+[connection signal="start_game" from="MainMenu" to="." method="_on_main_menu_start_game"]
