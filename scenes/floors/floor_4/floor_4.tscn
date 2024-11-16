@@ -42,3 +42,5 @@ position = Vector2(-16, 40)
 [node name="Exit" parent="." instance=ExtResource("5_yhnw6")]
 z_index = -1
 position = Vector2(152, -120)
+
+[connection signal="exit_entered" from="Exit" to="." method="_on_exit_exit_entered"]
