@@ -62,4 +62,7 @@ position = Vector2(1296, 1104)
 [node name="Slaymie" parent="Enemies" instance=ExtResource("6_ntjuo")]
 position = Vector2(832, 984)
 
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.347817, 0.347817, 0.347817, 1)
+
 [connection signal="exit_entered" from="Exit" to="." method="_on_exit_exit_entered"]
