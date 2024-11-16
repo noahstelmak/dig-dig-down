@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://p81ukddxm5cl"]
+[gd_scene load_steps=38 format=3 uid="uid://p81ukddxm5cl"]
 
 [ext_resource type="Script" path="res://scenes/entities/player/player.gd" id="1_g55rq"]
 [ext_resource type="PackedScene" uid="uid://doionhaksnvao" path="res://scenes/entities/player/dig_tool.tscn" id="2_7r63m"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://cfmjcq7e2mlbj" path="res://light.png" id="5_kmopk"]
 [ext_resource type="AudioStream" uid="uid://dj0vsni1sfanp" path="res://scenes/entities/player/ahh.mp3" id="5_rbr51"]
 [ext_resource type="AudioStream" uid="uid://b5t2a88i7b4jg" path="res://scenes/entities/player/uhh.mp3" id="6_ssey3"]
+[ext_resource type="PackedScene" uid="uid://p13aryos8w8i" path="res://scenes/menu/ui.tscn" id="8_c2bnu"]
+[ext_resource type="Script" path="res://scenes/entities/player/camera_2d.gd" id="8_rv5de"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rqu50"]
 shader = ExtResource("2_y7s7a")
@@ -276,10 +278,24 @@ stream = ExtResource("5_rbr51")
 stream = ExtResource("6_ssey3")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(-2.27374e-13, -4.76837e-07)
-scale = Vector2(0.886719, 0.871094)
+scale = Vector2(0.976563, 0.804688)
 energy = 0.75
 shadow_enabled = true
 texture = ExtResource("5_kmopk")
+
+[node name="UI" parent="PointLight2D" instance=ExtResource("8_c2bnu")]
+anchors_preset = -1
+anchor_left = -0.074
+anchor_top = 0.108
+anchor_right = -0.074
+anchor_bottom = 0.108
+offset_left = 37.888
+offset_top = -55.296
+offset_right = 37.888
+offset_bottom = -55.296
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+script = ExtResource("8_rv5de")
 
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

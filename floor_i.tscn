@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=4 uid="uid://diml61at3753q"]
+[gd_scene load_steps=8 format=4 uid="uid://diml61at3753q"]
 
 [ext_resource type="TileSet" uid="uid://cbdppwe74gqlb" path="res://assets/tilesets/DwarvenDelveTileset.tres" id="1_ltsua"]
 [ext_resource type="PackedScene" uid="uid://p81ukddxm5cl" path="res://scenes/entities/player/player.tscn" id="1_rrfh1"]
-[ext_resource type="Script" path="res://scripts/utils/camera_2d.gd" id="3_53suk"]
 [ext_resource type="PackedScene" uid="uid://5eh1gjfjv5iy" path="res://scenes/entities/enemies/slaymie/slaymie.tscn" id="4_33fhp"]
 [ext_resource type="PackedScene" uid="uid://bqdf5ygp4i7fn" path="res://scenes/objects/minerals/iron_ore/iron_ore.tscn" id="4_yceoc"]
 [ext_resource type="PackedScene" uid="uid://dbt667j6i60ed" path="res://scenes/objects/items/chunks/iron_chunk/IronChunk.tscn" id="6_auclh"]
@@ -19,12 +18,8 @@ tile_set = ExtResource("1_ltsua")
 
 [node name="Player" parent="." instance=ExtResource("1_rrfh1")]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(1.5, 1.5)
-script = ExtResource("3_53suk")
-
 [node name="Slaymie" parent="." instance=ExtResource("4_33fhp")]
-position = Vector2(945, 292)
+position = Vector2(-264, 41)
 
 [node name="IronOre" parent="." instance=ExtResource("4_yceoc")]
 position = Vector2(175, -31)
@@ -39,3 +34,6 @@ mix_target = 2
 
 [node name="MusuclarEye" parent="." instance=ExtResource("8_6brdu")]
 position = Vector2(-264, -32)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.347817, 0.347817, 0.347817, 1)
