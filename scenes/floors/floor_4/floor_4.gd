@@ -1,4 +1,4 @@
-extends Node2D
+extends Floor
 
 const shopItems = [
 	'Dano+',
@@ -15,11 +15,15 @@ func _ready():
 		var price = null;
 		
 		if random_value <= 1:
-			price = 1
+			price = 5
 		elif random_value <= 6: 
-			price = 2
+			price = 10
 		else:  
-			price = 3
+			price = 15
 		
 		items[i].our_set_price(price)
 		items[i].our_set_name(item)
+
+
+func _on_exit_exit_entered() -> void:
+	next_floor.emit()
