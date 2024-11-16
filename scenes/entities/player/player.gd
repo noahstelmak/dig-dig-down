@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name  Player
 
-@export var SPEED: float = 300.0;
+@export var SPEED: float = 250.0;
 @export var MAX_HEALTH: float = 100.0;
 @export var HEALTH: float = MAX_HEALTH;
 
@@ -53,7 +53,7 @@ func play_animations(direction: Vector2):
 		$AnimatedSprite2D.play("walk_back");
 
 func handle_movement(direction: Vector2):
-	velocity = direction * SPEED + knockback
+	velocity = direction * (SPEED + Globals.VELOCIDADE_NIVEL * 50)  + knockback
 	knockback = knockback.lerp(Vector2.ZERO, 0.1)
 	
 func _physics_process(_delta):
